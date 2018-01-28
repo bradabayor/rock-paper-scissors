@@ -8,36 +8,50 @@
 	
 	let selectionOptions = ["rock", "paper", "scissors"];
 
-	let playerSelection = "rock";
+	let playerSelection;
 	let computerSelection;
 
-	let randomNum;
+	let computerSelector;
+
+	let playerScore = 0;
+	let computerScore = 0;
+	let roundNum = 0;
 
 	function computerPlay() {
-		randomNum = Math.floor(Math.random() * 3);
-		return selectionOptions[randomNum];
+		computerSelector = Math.floor(Math.random() * 3);
+		return selectionOptions[computerSelector];
 	}
 
 	function round() {
 		computerSelection = computerPlay();
+		let playerSelection = prompt("Choose your weapon.");
 
 		switch (true) {
 			case (playerSelection == "rock" && computerSelection == "scissors"):
 			case (playerSelection == "scissors" && computerSelection == "paper"):
 			case (playerSelection == "paper" && computerSelection == "rock"):
 				console.log("You Win! " + playerSelection + " beats " + computerSelection);
+				playerScore++;
 				break;
 			case (playerSelection == "scissors" && computerSelection == "paper"):
 			case (playerSelection == "paper" && computerSelection == "scissors"):
 			case (playerSelection == "rock" && computerSelection == "paper"):
 				console.log("You Lose! " + computerSelection + " beats " + playerSelection);
-					break;	
+				computerScore++;
+				break;	
 			case (playerSelection === computerSelection):
 				console.log("It's a draw");
 				break;	
 		}
 	}
 
+	function game() {	
+		while (roundNum < 5) {
+			round();
+			console.log("Score: You " + playerScore +", Computer " + computerScore);
+			roundNum++;
+		}
+	}
 
 </script>
 
