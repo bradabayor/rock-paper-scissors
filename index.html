@@ -15,12 +15,12 @@
 	let cScore = 0;
 	let roundNum = 0;
 
-	function computerPlay() {
+	function getComputerWeapon() {
 		return Math.floor(Math.random() * 3);
 	}
 
-	function round() {
-		cWeapon = computerPlay();  //Selects computer weapon
+	function playRound() {
+		cWeapon = getComputerWeapon();  //Selects computer weapon
 
 		pWeapon = prompt("Choose your weapon.").toLowerCase();  //Player inputs weapon
 		
@@ -45,9 +45,9 @@
 		}
 	}
 
-	function game() {	
+	function playGame() {	
 		while (roundNum < 5) {  //Five-round game
-			round();
+			playRound();
 			console.log("Round: " +(roundNum + 1) + " Score: You " + pScore +", Computer " + cScore);
 			roundNum++;
 		}
