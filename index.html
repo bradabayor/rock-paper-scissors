@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors</title>
+</head>
+
+<script type="text/javascript">
+	
+	let selectionOptions = ["rock", "paper", "scissors"];
+
+	let playerSelection = "rock";
+	let computerSelection;
+
+	let randomNum;
+
+	function computerPlay() {
+		randomNum = Math.floor(Math.random() * 3);
+		return selectionOptions[randomNum];
+	}
+
+	function round() {
+		computerSelection = computerPlay();
+
+		switch (true) {
+			case (playerSelection == "rock" && computerSelection == "scissors"):
+			case (playerSelection == "scissors" && computerSelection == "paper"):
+			case (playerSelection == "paper" && computerSelection == "rock"):
+				console.log("You Win! " + playerSelection + " beats " + computerSelection);
+				break;
+			case (playerSelection == "scissors" && computerSelection == "paper"):
+			case (playerSelection == "paper" && computerSelection == "scissors"):
+			case (playerSelection == "rock" && computerSelection == "paper"):
+				console.log("You Lose! " + computerSelection + " beats " + playerSelection);
+					break;	
+			case (playerSelection === computerSelection):
+				console.log("It's a draw");
+				break;	
+		}
+	}
+
+
+</script>
+
+</html>
