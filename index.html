@@ -6,41 +6,40 @@
 
 <script type="text/javascript">
 	
-	let selectionOptions = ["rock", "paper", "scissors"];
+	const WEAPONS = ["rock", "paper", "scissors"];
 
-	let playerSelection;
-	let computerSelection;
+	let pWeapon;
+	let cWeapon;
 
-	let computerSelector;
-
-	let playerScore = 0;
-	let computerScore = 0;
+	let pScore = 0;
+	let cScore = 0;
 	let roundNum = 0;
 
 	function computerPlay() {
-		computerSelector = Math.floor(Math.random() * 3);
-		return selectionOptions[computerSelector];
+		return Math.floor(Math.random() * 3);
 	}
 
 	function round() {
-		computerSelection = computerPlay();  //Selects computer weapon
-		playerSelection = prompt("Choose your weapon.");  //Player inputs weapon
-		playerSelection = playerSelection.toLowerCase();
+		cWeapon = computerPlay();  //Selects computer weapon
+
+		pWeapon = prompt("Choose your weapon.").toLowerCase();  //Player inputs weapon
+		
+		if (pWeapon = "rock") { pWeapon = 0 } else if (pWeapon = "paper") { pWeapon = 1 } else if (pWeapon = "scissors") { pWeapon = 2 };
 
 		switch (true) {
-			case (playerSelection == "rock" && computerSelection == "scissors"):
-			case (playerSelection == "scissors" && computerSelection == "paper"):
-			case (playerSelection == "paper" && computerSelection == "rock"):
-				console.log("You Win! " + playerSelection + " beats " + computerSelection);
-				playerScore++;
+			case (pWeapon == 0 && cWeapon == 2):
+			case (pWeapon == 2 && cWeapon == 1):
+			case (pWeapon == 1 && cWeapon == 0):
+				console.log("You Win! " + WEAPONS[pWeapon] + " beats " + WEAPONS[cWeapon]);
+				pScore++;
 				break;
-			case (playerSelection == "scissors" && computerSelection == "paper"):
-			case (playerSelection == "paper" && computerSelection == "scissors"):
-			case (playerSelection == "rock" && computerSelection == "paper"):
-				console.log("You Lose! " + computerSelection + " beats " + playerSelection);
-				computerScore++;
+			case (pWeapon == 2 && cWeapon == 1):
+			case (pWeapon == 1 && cWeapon == 2):
+			case (pWeapon == 0 && cWeapon == 1):
+				console.log("You Lose! " + WEAPONS[cWeapon] + " beats " + WEAPONS[pWeapon]);
+				cScore++;
 				break;	
-			case (playerSelection === computerSelection):
+			case (pWeapon === cWeapon):
 				console.log("It's a draw");
 				break;	
 		}
@@ -49,21 +48,21 @@
 	function game() {	
 		while (roundNum < 5) {  //Five-round game
 			round();
-			console.log("Round: " +(roundNum + 1) + " Score: You " + playerScore +", Computer " + computerScore);
+			console.log("Round: " +(roundNum + 1) + " Score: You " + pScore +", Computer " + cScore);
 			roundNum++;
 		}
 		switch (true) {  //Declares game winner
-			case (playerScore > computerScore):
+			case (pScore > cScore):
 				console.log("You Win!");
 				break;
-			case (computerScore > playerScore):
+			case (cScore > pScore):
 				console.log("You Lose!");
 				break;
 			default:
 				console.log("Draw");
 		}
-		playerScore = 0;  //Reset values
-		computerScore = 0;
+		pScore = 0;  //Reset values
+		cScore = 0;
 		roundNum = 0;
 	}
 
