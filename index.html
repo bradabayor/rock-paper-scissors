@@ -23,8 +23,9 @@
 	}
 
 	function round() {
-		computerSelection = computerPlay();
-		let playerSelection = prompt("Choose your weapon.");
+		computerSelection = computerPlay();  //Selects computer weapon
+		playerSelection = prompt("Choose your weapon.");  //Player inputs weapon
+		playerSelection = playerSelection.toLowerCase();
 
 		switch (true) {
 			case (playerSelection == "rock" && computerSelection == "scissors"):
@@ -46,11 +47,24 @@
 	}
 
 	function game() {	
-		while (roundNum < 5) {
+		while (roundNum < 5) {  //Five-round game
 			round();
-			console.log("Score: You " + playerScore +", Computer " + computerScore);
+			console.log("Round: " +(roundNum + 1) + " Score: You " + playerScore +", Computer " + computerScore);
 			roundNum++;
 		}
+		switch (true) {  //Declares game winner
+			case (playerScore > computerScore):
+				console.log("You Win!");
+				break;
+			case (computerScore > playerScore):
+				console.log("You Lose!");
+				break;
+			default:
+				console.log("Draw");
+		}
+		playerScore = 0;  //Reset values
+		computerScore = 0;
+		roundNum = 0;
 	}
 
 </script>
