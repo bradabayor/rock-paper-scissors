@@ -2,70 +2,24 @@
 <html>
 <head>
 	<title>Rock Paper Scissors</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
 </head>
-
-<script type="text/javascript">
-	
-	const WEAPONS = ["rock", "paper", "scissors"];
-
-	let pWeapon;
-	let cWeapon;
-
-	let pScore = 0;
-	let cScore = 0;
-	let roundNum = 0;
-
-	function getComputerWeapon() {
-		return Math.floor(Math.random() * 3);
-	}
-
-	function playRound() {
-		cWeapon = getComputerWeapon();  //Selects computer weapon
-
-		pWeapon = prompt("Choose your weapon.").toLowerCase();  //Player inputs weapon
-		
-		if (pWeapon = "rock") { pWeapon = 0 } else if (pWeapon = "paper") { pWeapon = 1 } else if (pWeapon = "scissors") { pWeapon = 2 };
-
-		switch (true) {
-			case (pWeapon == 0 && cWeapon == 2):
-			case (pWeapon == 2 && cWeapon == 1):
-			case (pWeapon == 1 && cWeapon == 0):
-				console.log("You Win! " + WEAPONS[pWeapon] + " beats " + WEAPONS[cWeapon]);
-				pScore++;
-				break;
-			case (pWeapon == 2 && cWeapon == 1):
-			case (pWeapon == 1 && cWeapon == 2):
-			case (pWeapon == 0 && cWeapon == 1):
-				console.log("You Lose! " + WEAPONS[cWeapon] + " beats " + WEAPONS[pWeapon]);
-				cScore++;
-				break;	
-			case (pWeapon === cWeapon):
-				console.log("It's a draw");
-				break;	
-		}
-	}
-
-	function playGame() {	
-		while (roundNum < 5) {  //Five-round game
-			playRound();
-			console.log("Round: " +(roundNum + 1) + " Score: You " + pScore +", Computer " + cScore);
-			roundNum++;
-		}
-		switch (true) {  //Declares game winner
-			case (pScore > cScore):
-				console.log("You Win!");
-				break;
-			case (cScore > pScore):
-				console.log("You Lose!");
-				break;
-			default:
-				console.log("Draw");
-		}
-		pScore = 0;  //Reset values
-		cScore = 0;
-		roundNum = 0;
-	}
-
-</script>
-
+<body>
+	<div class="container">
+		<div class="status">
+			<div class="round">ROUND 1</div>
+			<div class="score">SCORE</div>
+		</div><br>
+		<div class="input" align="center">
+			<button class="weapon" id="0">ROCK</button>
+			<button class="weapon" id="1">PAPER</button>
+			<button class="weapon" id="2">SCISSORS</button>
+		</div><br>
+		<div id="notifier" align="center">ROCK PAPER SCISSORS</p>
+		</div>
+	</div>
+<script src="scripts/script.js"></script>
+</body>
 </html>

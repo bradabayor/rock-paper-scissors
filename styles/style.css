@@ -1,0 +1,48 @@
+body {
+	font-family: 'VT323', monospace;
+	background-color: white;
+}
+
+button {
+	text-decoration: none;
+	font-family: 'VT323', monospace;
+	font-size: 30px;
+	height: 150px;
+	width: 150px;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 10px;
+	border-color: #CC4F98;
+	background-color: black;
+	color: #42AFE7;
+}
+
+button:hover {
+	border-color: #CC4F98;
+	background-color: #CC4F98;
+	color: black;
+}
+
+.status > div {
+	display: inline-block;
+
+}
+
+.input {
+	margin-top: 50px;
+}
+
+.round, .score {
+	font-size: 40px;
+	border-style: s
+}
+
+.round {
+	float: left;
+	margin-left: 200px;
+}
+
+.score {
+	float: right;
+	margin-right: 200px;
+}
