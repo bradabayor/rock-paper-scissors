@@ -28,7 +28,7 @@
 					case (pScore > cScore):
 						notifier.textContent = "YOU WIN. GOOD JOB."
 						break;
-					case (pScore > cScore):
+					case (pScore < cScore):
 						notifier.textContent = "YOU LOSE. PISS OFF."
 						break;
 					case (pScore == cScore):

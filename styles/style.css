@@ -1,26 +1,40 @@
 body {
-	font-family: 'VT323', monospace;
-	background-color: white;
+	font-family: 'Assistant', sans-serif;
+	background-color: LightGrey;
 }
 
 button {
+	color: white;
+	font-family: 'Assistant', sans-serif;
+	font-size: 90px;
 	text-decoration: none;
-	font-family: 'VT323', monospace;
-	font-size: 30px;
+	background-color: DodgerBlue;
 	height: 150px;
 	width: 150px;
-	border-style: solid;
-	border-width: 3px;
-	border-radius: 10px;
-	border-color: #CC4F98;
-	background-color: black;
-	color: #42AFE7;
+	margin: 5px;
+	border: 3px DeepSkyBlue solid;
+	border-radius: 25px;
 }
 
 button:hover {
-	border-color: #CC4F98;
-	background-color: #CC4F98;
-	color: black;
+	transform: scale(1.1);
+	background-color: black;
+	border-color: black;
+	transition-timing-function: linear;
+	transition: 500ms;
+}
+
+.container {
+	width: 600px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px gray solid;
+	border-radius: 10px;
+	padding: 30px 0;
+	box-shadow: 0 0 20px 0;
+	background-color: white;
+
 }
 
 .status > div {
@@ -29,20 +43,22 @@ button:hover {
 }
 
 .input {
-	margin-top: 50px;
+	margin-top: 30px;
 }
 
-.round, .score {
+.round, .score, .title {
 	font-size: 40px;
-	border-style: s
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-.round {
-	float: left;
-	margin-left: 200px;
+.title {
+	margin-bottom: 20px;
 }
 
-.score {
-	float: right;
-	margin-right: 200px;
+.scoreboard {
+	border: 3px Gainsboro solid;
+	border-radius: 10px;
+	padding: 10px 20px;
 }
